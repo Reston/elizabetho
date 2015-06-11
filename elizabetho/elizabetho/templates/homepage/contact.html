@@ -1,13 +1,13 @@
-{% extends 'homepage/index.html' %}
+{% extends 'base.html' %}
+{% load staticfiles %}
 {% block title %}
-Contacto - Duranjo
+Contact - Elizabeth Olive
 {% endblock %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/contacto.css' %}">
 {% endblock %}
 {% block js %}
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="{% static 'js/propios/selectable.js' %}"></script>
 {% endblock %}
 {% block contenido %}
@@ -30,30 +30,13 @@ Contacto - Duranjo
    		{% endif %}
 		<form action="#" method="POST">
 			{% csrf_token %}
-			<div class="campo">
+			<!-- <div class="campo">
 				{{ field.errors }}
 				<label for="nombre">Nombre:</label>
 				{{ form.nombre }}
 				{{ form.nombre.errors }}
-			</div>
-			<div class="campo">				
-				{{ field.errors }}
-				<label for="email">Correo Electrónico:</label>
-				{{ form.email }}
-				{{ form.email.errors }}
-			</div>
-			<div class="campo">
-				{{ field.errors }}
-				<label for="telefono">Teléfono:</label>
-				{{ form.telefono }}
-				{{ form.telefono.errors }}
-			</div>
-			<div class="textareaDescripcion">
-				{{ field.errors }}
-				<label for="texto">Breve descripción de su proyecto: </label>
-				{{ form.texto }}
-				{{ form.texto.errors }}
-			</div>
+			</div> -->
+			{{ form.as_p }}
 			<div class="botonEnviar">
 				<input type="submit">
 			</div>

@@ -1,1 +1,25 @@
 @charset 'utf-8';
+body{
+	background: #FDFDFD;
+}
+.wrapper{
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto 0 auto;
+}
+header{
+	text-align: center;
+}
+h1, h2{
+	font-family: "Marvel", helvetica;
+	color: #8E8E8E;
+}
+h3, p{
+	font-family: "Raleway", helvetica;
+}
+h3{
+	color: #5a5b5a;
+}
+p{
+	color: #999b99;
+}

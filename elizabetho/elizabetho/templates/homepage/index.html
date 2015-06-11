@@ -1,26 +1,16 @@
 {% extends "base.html" %}
-{% load url from future %}
 {% load staticfiles %}
 {% block head %} 
 <meta name="description" content="">
 {% endblock%}
 {% block title %}
-Duranjo Web
+Home - Elizabeth Olive
 {% endblock%}
 {% block css%}
-<link rel="stylesheet" href="{{ STATIC_URL }}css/index.css">
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
 {% block js %}
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="{% static 'js/adquiridos/back-top.js' %}"></script>
-{% endblock %}
-{% block navi %}
-		<ul>
-			<li class="index"><a href="{% url 'homepageindex' %}">Inicio</a></li>
-			<li class="works"><a href="{% url 'homepageworks' %}">Trabajos</a></li>
-			<li class="services"><a href="{% url 'homepageservices' %}">Servicios</a></li>
-			<li class="contact"><a href="{% url 'homapagecontact' %}">Contacto</a></li>
-		</ul>				
 {% endblock %}
 {% block clear %}{% endblock%}
 {% block contenido %}
@@ -29,34 +19,53 @@ Duranjo Web
 		<div class="wrapper banner1">
 		</div>
 	</section>
-	<section class="ofrecemos">		
+	<section class="services">
+		<div class="wrapper">
+			<h2>Services</h2>
+			<h3>Color Analysis</h3>
+			<p>Look the best of yourself by learning what colors enhance your natural beauty.</p>
+			<h3>Body Style Analysis</h3>
+			<p>Select the right clothing for your body type, know your measurements, know your goals, learn how to instantly choose your perfect garment.</p>
+			<h3>Wardrobe Evaluation</h3>
+			<p>Be objective about what you have in your closet. Get rid of all the unnecessary items, make a list of the one you must have, the ones that make it easy, have fun, and get the best of you!</p>
+			<h3>Personal Shopping</h3> 
+			<p>Get Pampered! Shopping stress you out? We capture your true style, go to your favorite store, and buy for you the garments that go with your personal style and body shape.</p>
+			<h3>Styling Outfits</h3>
+			<p>Even within your own closet, create new styles, play with colors, match pieces that you never thought of, and undertake your true unique style.</p>
+			<h3>Photo & Event Preproduction</h3>
+			<p>Don't leave it to the luck! We will help you be ready for that coming event, make the most of your time and image, and transcend!</p>
+		</div>			
 	</section>
-	<section class="aboutus">		
+	<section class="elizabeth">
+		<div class="wrapper">
+			<h2>Elizabeth</h2>
+			<div class="gallery"></div>
+			<img src="{% static 'img/getthebest.png' %}" alt="Get the best of you!">
+		</div>
 	</section>
 	<section class="infoContacto">
-	</section>	
-	<!-- Google+ SCRIPT --> 
-		<!-- Place this tag after the last badge tag. -->
-		<script  async type="text/javascript">
-		 window.___gcfg = {lang: 'es-419'};
-		 (function() {
-		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		   po.src = 'https://apis.google.com/js/plusone.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
-	<!-- FACEBOOK SCRIPT -->
-			<div id="fb-root"></div>
-		<script async>(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-	<!-- TWITTER SCRIPT -->
-	<script async>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	
+		<div class="wrapper">
+			<h2>Contact us</h2>
+			<form action="#" method="POST">
+				{% csrf_token %}
+				<!-- <div class="campo">
+					{{ field.errors }}
+					<label for="nombre">Nombre:</label>
+					{{ form.nombre }}
+					{{ form.nombre.errors }}
+				</div> -->
+				{{ form.as_p }}
+				<div class="botonEnviar">
+					<input type="submit">
+				</div>
+			</form>
+		</div>
+	</section>
+	<section class="testimonials">
+		<div class="wrapper">
+			<h2>Testimonials</h2>
+		</div>
+	</section>
 	<!-- BACK TOP BOX -->
 	<div id="back-top" class="back-top">
 		<a href="#home"><span>↑</span>Regresar arriba</a>

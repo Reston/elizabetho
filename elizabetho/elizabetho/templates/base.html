@@ -8,15 +8,19 @@
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <meta name="keywords" content="">
-<meta name="author" content="duranjo web c.a.">
+<meta name="author" content="Elizabeth Oliva">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 {% block head %} {% endblock%}
-<link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}img/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
 <title>{% block title %} {% endblock%}</title>
-<link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.css">
+<link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 {% block css %}
 {% endblock %}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 {% block js %}
 {% endblock %}
 </head>
@@ -32,9 +36,16 @@
 	  ga('send', 'pageview');
 	</script> -->
 	<header id="home" class="cabecera">
-		<div class="wrapper">				
+		<div class="wrapper">
+			<img src="{% static 'img/logo.png' %}" alt="Logo elizabeth oliva">		
 			<nav class="barraNavegacion">
-				{% block navi %} {% endblock%}
+				<a href="{% url 'homepageindex' %}">Home</a>
+				<a href="{% url 'homepageabout' %}">About</a>
+				<a href="{% url 'homepageservices' %}">Services</a>
+				<a href="">Gallery</a>
+				<a href="/blog">Blog</a>
+				<a href="{% url 'homepagecontact' %}">Contact</a>
+				{% block navi %}{% endblock%}
 			</nav>
 		</div>
 	</header>
@@ -46,8 +57,20 @@
 		{% block footer %}{% endblock%}
 		<div class="wrapper">
 			<div class="footer-der">
+				<div class="barraNavegacionFooter">
+					<a href="{% url 'homepageindex' %}">Home</a>
+					<a href="{% url 'homepageabout' %}">About</a>
+					<a href="{% url 'homepageservices' %}">Services</a>
+					<a href="">Gallery</a>
+					<a href="/blog">Blog</a>
+					<a href="{% url 'homepagecontact' %}">Contact</a>
+				</div>
+				<div class="copyRight">Elizabeth Oliva © Copyright 2015 - All rights reserved.</div>
 			</div>
 			<div class="footer-izq">
+				<img src="" alt="">
+				<div class="phoneFooter">Phone: 305 989 1513</div>
+				<div class="emailFooter">Email: <a href="mailto:elizabeth@elizabetholiva.us">elizabeth@elizabetholiva.us</a></div>
 			</div>		  
 		</div>
 	</footer>

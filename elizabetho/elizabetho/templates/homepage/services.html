@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+Services - Elizabeth Olive
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/seccionlibre.css' %}">
+{% endblock %}
+{% block js %}
+{% endblock %}
+{% block contenido %}
+<section class="quienessomos">
+	<h1>Services</h1>
+	<img src="{% static 'img/services.png' %}" alt="services photos elizabeth olive">
+	<section class="services">
+		<div class="wrapper">
+			<h2>Color Analysis</h2>
+			<p>Look the best of yourself by learning what colors enhance your natural beauty.</p>
+			<h2>Body Style Analysis</h2>
+			<p>Select the right clothing for your body type, know your measurements, know your goals, learn how to instantly choose your perfect garment.</p>
+			<h2>Wardrobe Evaluation</h2>
+			<p>Be objective about what you have in your closet. Get rid of all the unnecessary items, make a list of the one you must have, the ones that make it easy, have fun, and get the best of you!</p>
+			<h2>Personal Shopping</h2> 
+			<p>Get Pampered! Shopping stress you out? We capture your true style, go to your favorite store, and buy for you the garments that go with your personal style and body shape.</p>
+			<h2>Styling Outfits</h2>
+			<p>Even within your own closet, create new styles, play with colors, match pieces that you never thought of, and undertake your true unique style.</p>
+			<h2>Photo & Event Preproduction</h2>
+			<p>Don't leave it to the luck! We will help you be ready for that coming event, make the most of your time and image, and transcend!</p>
+		</div>			
+	</section>
+</section>
+{% endblock%}
