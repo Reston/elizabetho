@@ -1,0 +1,21 @@
+h2{
+	text-align: center;
+}
+.contactDer, .contactIzq{
+	margin-top: 15px;
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+
+.infoContacto{
+	font-size: 1.5em;
+  	text-align: center;
+}
+.contactDer img{
+	max-width: 100%;
+}
+.flexslider {
+	background: none !important;
+	border: none !important;
+}

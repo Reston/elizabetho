@@ -37,7 +37,13 @@
 	</script> -->
 	<header id="home" class="cabecera">
 		<div class="wrapper">
-			<img src="{% static 'img/logo.png' %}" alt="Logo elizabeth oliva">		
+			<div class="redes">
+				<a href="https://facebook.com/*"><div class="facebook"></div></a>
+				<a href="https://twitter.com/*"><div class="twitter"></div></a>				
+				<a href="https://instagram.com/*"><div class="instagram"></div></a>
+				<a href="https://linkedin.com/*"><div class="linkedin"></div></a>
+			</div>
+			<a href="{% url 'homepageindex' %}"><img src="{% static 'img/logo.png' %}" alt="Logo elizabeth oliva"></a>
 			<nav class="barraNavegacion">
 				<a href="{% url 'homepageindex' %}">Home</a>
 				<a href="{% url 'homepageabout' %}">About</a>
@@ -71,8 +77,16 @@
 				<img src="" alt="">
 				<div class="phoneFooter">Phone: 305 989 1513</div>
 				<div class="emailFooter">Email: <a href="mailto:elizabeth@elizabetholiva.us">elizabeth@elizabetholiva.us</a></div>
-			</div>		  
+			</div>	  
+			<div class="redes">
+				<a href="https://facebook.com/*"><div class="facebook"></div></a>
+				<a href="https://twitter.com/*"><div class="twitter"></div></a>				
+				<a href="https://instagram.com/*"><div class="instagram"></div></a>
+				<a href="https://linkedin.com/*"><div class="linkedin"></div></a>
+			</div>
 		</div>
 	</footer>
+	{% block jsBottom %}
+	{% endblock %}
 </body>
 </html>

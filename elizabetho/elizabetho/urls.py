@@ -5,7 +5,9 @@ from sitemaps import StaticViewSitemap
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+
 admin.autodiscover()
+
 sitemaps = {
 	'pages': StaticViewSitemap,
 }

@@ -4,30 +4,68 @@
 Services - Elizabeth Olive
 {% endblock %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/seccionlibre.css' %}">
-{% endblock %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage/services.css' %}">
+<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+{% endblock css%}
 {% block js %}
+<script type="text/javascript" src="{% static 'js/adquiridos/jquery.flexslider-min.js' %}"></script>
 {% endblock %}
 {% block contenido %}
-<section class="quienessomos">
-	<h1>Services</h1>
-	<img src="{% static 'img/services.png' %}" alt="services photos elizabeth olive">
-	<section class="services">
-		<div class="wrapper">
-			<h2>Color Analysis</h2>
-			<p>Look the best of yourself by learning what colors enhance your natural beauty.</p>
-			<h2>Body Style Analysis</h2>
-			<p>Select the right clothing for your body type, know your measurements, know your goals, learn how to instantly choose your perfect garment.</p>
-			<h2>Wardrobe Evaluation</h2>
-			<p>Be objective about what you have in your closet. Get rid of all the unnecessary items, make a list of the one you must have, the ones that make it easy, have fun, and get the best of you!</p>
-			<h2>Personal Shopping</h2> 
-			<p>Get Pampered! Shopping stress you out? We capture your true style, go to your favorite store, and buy for you the garments that go with your personal style and body shape.</p>
-			<h2>Styling Outfits</h2>
-			<p>Even within your own closet, create new styles, play with colors, match pieces that you never thought of, and undertake your true unique style.</p>
-			<h2>Photo & Event Preproduction</h2>
-			<p>Don't leave it to the luck! We will help you be ready for that coming event, make the most of your time and image, and transcend!</p>
-		</div>			
+<div class="quienessomos">
+	<div class="wrapper">
+		<h1>Services</h1>
+		<img src="{% static 'img/services.png' %}" alt="services photos elizabeth olive">
+	</div>
+	<div class="wrapper">
+		<section class="services">
+				<h3>Color Analysis</h3>
+				<p>Look the best of yourself by learning what colors enhance your natural beauty.</p>
+				<h3>Body Style Analysis</h3>
+				<p>Select the right clothing for your body type, know your measurements, know your goals, learn how to instantly choose your perfect garment.</p>
+				<h3>Wardrobe Evaluation</h3>
+				<p>Be objective about what you have in your closet. Get rid of all the unnecessary items, make a list of the one you must have, the ones that make it easy, have fun, and get the best of you!</p>
+				<h3>Personal Shopping</h3> 
+				<p>Get Pampered! Shopping stress you out? We capture your true style, go to your favorite store, and buy for you the garments that go with your personal style and body shape.</p>
+				<h3>Styling Outfits</h3>
+				<p>Even within your own closet, create new styles, play with colors, match pieces that you never thought of, and undertake your true unique style.</p>
+				<h3>Photo & Event Preproduction</h3>
+				<p>Don't leave it to the luck! We will help you be ready for that coming event, make the most of your time and image, and transcend!</p>
+		</section>
+		<section class="infoContacto">
+			<form action="#" method="POST">
+				<h3 class="titleform">Fill out the form</h3>
+				{% csrf_token %}
+				{{ form.as_p }}
+				<div class="botonEnviar">
+					<input type="submit">
+				</div>
+			</form>
+		</section>
+	<section class="gallery">
+		{% include 'gallerypath/llamadoaccion.html' %}
 	</section>
-</section>
+	<section class="testimonials">
+		<h2>Testimonials</h2>
+		{% for testi in testimonials %}
+		<div class="testimonial">
+			<img src="{{testi.photo.url}}" alt="{{testi.name}}">
+			<div class="description">
+				<div class="name">{{testi.name}}</div>
+				<p>{{testi.description}}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</section>
+	</div>
+</div>
 {% endblock%}
+{% block jsBottom %}
+<script>
+	$('.flexslider').flexslider({
+		slideshowSpeed: 7000,
+		// start: function(slider) {
+		//       slider.flexAnimate(slider.getTarget("next"));
+		//    }
+		});
+</script>
+{% endblock %}

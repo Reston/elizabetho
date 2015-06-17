@@ -48,3 +48,34 @@ class contactForm(forms.Form):
 		if len(texto) < 4:
 			raise forms.ValidationError("*")
 		return texto
+
+
+class realcontactForm(forms.Form):
+	GENDERS = (('Male', 'male'), ('Female', 'female'),)
+	name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Your name'}))
+	phone = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Your phone number'}))
+	email = forms.EmailField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
+	gender = forms.ChoiceField(widget=forms.RadioSelect, choices=GENDERS, required=True)
+	height = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Your height'}))
+	weight = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Your weight'}))
+	skin_color = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Color of your skin'}))
+	hair_color = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Color of your hair'}))
+	profession = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'What do you do for living?'}))
+	hobbies = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'What do you like to do?'}))
+	favorite_colors = forms.CharField(max_length=300, widget=forms.TextInput(attrs={'placeholder': 'Write down all your favorite colors'}))
+	mensaje = forms.CharField(max_length=300, widget=forms.Textarea(attrs={'cols': 38, 'rows': 10}))
+	website = forms.CharField(widget=HoneypotWidget, required=False)
+
+	def clean_asunto(self):
+		cd = self.cleaned_data
+		asunto = cd.get('asunto')
+		if len(asunto) < 3:
+			raise forms.ValidationError("It must be larger than 2 letters.")
+		return asunto
+
+	def clean_texto(self):
+		cd = self.cleaned_data
+		texto = cd.get('texto')
+		if len(texto) < 4:
+			raise forms.ValidationError("*")
+		return texto

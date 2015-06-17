@@ -4,26 +4,62 @@
 About - Elizabeth Olive
 {% endblock %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'css/quienesomos.css' %}">
-{% endblock %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage/about.css' %}">
+<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+{% endblock css%}
 {% block js %}
+<script type="text/javascript" src="{% static 'js/adquiridos/jquery.flexslider-min.js' %}"></script>
 {% endblock %}
 {% block contenido %}
 <section class="quienessomos">
 	<div class="wrapper">
 		<div class="imagenher">
-			<img src="" alt="">
+			<img src="{% static 'img/biografia.jpg' %}" alt="Elizabeth Oliva">
 		</div>
 		<div class="abouther">
 			<h1>About elizabeth olive</h1>
-			<p>Elizabeth Oliva began her career XX years ago when her innate talent couldn’t go unnoticed by colleagues and friends. Her natural instinct to transform and her desire to help people achieve their ideal image drove her to become an <span>Image Consultant and Style Professional.</span> Elizabeth mastered the art of Image, Fashion, Style, and Make up Artistry with the Sterling Style Academy and with the renowned Gabriel Noda.</p>
+			<p>Elizabeth Oliva began her career XX years ago when her innate talent couldn’t go unnoticed by colleagues and friends. Her natural instinct to transform and her desire to help people achieve their ideal image drove her to become an <span class="violeta">Image Consultant and Style Professional.</span> Elizabeth mastered the art of Image, Fashion, Style, and Make up Artistry with the Sterling Style Academy and with the renowned Gabriel Noda.</p>
 			<p>Of Cuban origins, Elizabeth has lived in the United States for thirty years. Some of her experience in the industry include working as a stylist and décor specialist for prominent beauty salons, galleries, and interior design companies in Miami and New York.</p>
-			<p>Elizabeth’s goal is to help anyone from the young to the elder, from the professional to the housewife to <span>look good, be happy, and enjoy success.</span> Her advise and expertise will be that push setting you apart from others in your field, and finally you will get to express who you really are.</p>
+			<p>Elizabeth’s goal is to help anyone from the young to the elder, from the professional to the housewife to <span class="violeta">look good, be happy, and enjoy success.</span> Her advise and expertise will be that push setting you apart from others in your field, and finally you will get to express who you really are.</p>
 		</div>
 		<div class="philosophy">
-			Her Philosophy: "Your image is the image of your soul"
+			<div class="titlePhilo">Her Philosophy:</div><span class="violeta">"</span><span class="philomessage">Your image is the image of your soul</span><span class="violeta">"</span>
 		</div>
+		<section class="infoContacto">
+			<form action="#" method="POST">
+				<h3 class="titleform">Fill out the form</h3>
+				{% csrf_token %}
+				{{ form.as_p }}
+				<div class="botonEnviar">
+					<input type="submit">
+				</div>
+			</form>
+		</section>
+		<section class="gallery">
+			{% include 'gallerypath/llamadoaccion.html' %}
+		</section>
+		<section class="testimonialabout">
+			<h2>Testimonials</h2>
+			{% for testi in testimonials %}
+			<div class="testimonial">
+				<img src="{{testi.photo.url}}" alt="{{testi.name}}">
+				<div class="description">
+					<div class="name">{{testi.name}}</div>
+					<p>{{testi.description}}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</section>
 	</div>
 </section>
 {% endblock%}
+{% block jsBottom %}
+<script>
+	$('.flexslider').flexslider({
+		slideshowSpeed: 7000,
+		// start: function(slider) {
+		//       slider.flexAnimate(slider.getTarget("next"));
+		//    }
+		});
+</script>
+{% endblock %}

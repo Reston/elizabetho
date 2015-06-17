@@ -10,16 +10,204 @@ body{
 header{
 	text-align: center;
 }
+header nav a{
+	padding: 0 30px;
+	text-decoration: none;
+	color: #5a5b5a;
+}
+header nav a:hover{
+	text-decoration: underline;
+}
 h1, h2{
 	font-family: "Marvel", helvetica;
 	color: #8E8E8E;
+	font-weight: normal;
 }
-h3, p{
+h2{
+	font-size: 3em;
+	margin: 0;
+	font-style: italic;
+}
+h3, p, nav{
 	font-family: "Raleway", helvetica;
 }
 h3{
 	color: #5a5b5a;
 }
 p{
+	color: #696969;
+	text-align: justify;
+}
+form{
+	margin: 5% 10%;
+	border: 1px solid gray;
+}
+form .titleform{
+	text-align: center;
+}
+form p{
+	padding: 0 15%;
+}
+form p label{
+	float: left;
+	width: 100%;
+}
+form ul{
+	padding: 0 25%;
+}
+form ul li{
+	display: inline-block;
 	color: #999b99;
+}
+form p input{
+	width: 100%;
+	text-indent: 5px;
+}
+.botonEnviar{
+	text-align: center;
+	margin: 5%;
+}
+.botonEnviar > input{
+	padding: 3% 6%;
+	color: #AE1D3F;
+	border: none;
+}
+/* redes top and bottom */
+.redes{
+	text-align: right;
+	margin-top: 5px;
+}
+.twitter, .facebook, .linkedin, .instagram{
+	background: url(../img/redes.png) no-repeat;
+	display: inline-block;
+}
+footer .twitter, footer .facebook, footer .instagram, footer .linkedin{
+	background: url(../img/redes.png) no-repeat;
+}
+.twitter, footer .twitter{
+	background-position: -35px 0;
+	height: 40px;
+	width: 40px;
+}
+.facebook, footer .facebook{
+	background-position: 5px 0;
+	height: 40px;
+	width: 40px;
+}
+.instagram, footer .instagram{
+	background-position: -75px 0;
+	height: 40px;
+	width: 40px;
+}
+.linkedin, footer .linkedin{
+	background-position: -117px 0;
+	height: 40px;
+	width: 40px;
+}
+/* testimonials */
+.testimonials h2{
+	margin-bottom: 5%;
+	font-style: italic;
+}
+.testimonial{
+	margin-bottom: 30px;
+}
+.testimonials img{
+	width: 40%;
+	display: inline-block;
+}
+.testimonials .description{
+	display: inline-block;
+	vertical-align: top;
+	width: 59%;
+}
+.testimonials .description .name{
+	font-weight: bold;
+	color: #808080;
+}
+
+/* FOOTER */
+footer{
+	background-color: #EAEFFD;
+	color: #999B99;
+	padding: 3% 0 0 0;
+	text-align: center;
+}
+.footer-der, .footer-izq{
+	display: inline-block;
+	vertical-align: top;
+	width: 49%;
+}
+.barraNavegacionFooter a{
+	text-decoration: none;
+	color: #999B99;
+}
+/* Configuración back to top button */
+
+.back-top {
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+	z-index: 1;
+}
+
+.back-top a {
+	width: 108px;
+	display: block;
+	text-align: center;
+	font: 11px/100% Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: black;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+.back-top a:hover {
+	color: #000;
+}
+
+	/* arrow icon (span tag) */
+.back-top span {
+	width: 70px;
+	height: 70px;
+	display: block;
+	margin: 0 auto 7px auto;
+	font-size: 0;
+	background: rgb(99, 93, 93) url(../img/up-arrow.png) no-repeat center center;
+
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	/* transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+.back-top a:hover span {
+	background-color: #777;
+}
+
+@media screen and (max-width: 1000px){
+
+	/* configuración back-to-top responsive */
+	.back-top a{
+		width: 60px;
+	}
+	.back-top span {
+		width: 40px;
+		height: 40px;
+		font-weight: bold;
+		font-size: 4em;
+		line-height: 30px;
+		background: none;
+		margin: 0 auto 0 auto;
+	}
+	.back-top a:hover span {
+		background:none;
+	}
 }

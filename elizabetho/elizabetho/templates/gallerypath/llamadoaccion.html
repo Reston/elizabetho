@@ -1,0 +1,20 @@
+{% load thumbnail %}
+{% if gallery %}
+<div class="llamadoaccionaside">
+	<div class="flexslider">
+		<ul class="slides">
+		{% for imageg in llamados %}
+			{% thumbnail imageg.image "500x500" crop="center" as img %}
+				<li>
+					<a href="{{ imageg.url_to }}">
+						<img src="{{img.url}}" alt="{{imageg.alt}}">
+						<!-- <p class="flex-caption">{{item.texto_banner|safe}}</p> -->
+					</a>
+				</li>
+			{% endthumbnail %}
+		{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endif %}
+

@@ -1,0 +1,11 @@
+.services, .elizabeth, .infoContacto, .testimonials{
+	padding: 1%;
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+}
+.elizabeth > img{
+	width: 75%;
+	display: block;
+	margin: 20px auto 0 auto;
+}

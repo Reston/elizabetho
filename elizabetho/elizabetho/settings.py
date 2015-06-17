@@ -128,8 +128,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.humanize',
+    'django.contrib.comments',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'elizabetho.apps.homepage',
+    'elizabetho.apps.gallerypath',
     'tagging',
     'mptt',
     'zinnia',

@@ -1,0 +1,63 @@
+h1{
+	font-size: 3em;
+	margin: 0;
+}
+
+/*abouther */
+
+.imagenher{
+	margin-top: 30px;
+	display: inline-block;
+	width: 30%;
+	vertical-align: top;
+}
+.imagenher img{
+	width: 100%;
+}
+.abouther{
+	margin-top: 30px;
+	display: inline-block;
+	width: 65%;
+	vertical-align: top;
+	padding: 0 2%;
+}
+/*philo*/
+.philosophy{
+	margin: 0 5%;
+}
+.philosophy .titlePhilo{
+	color: #AE1D3F;
+}
+.violeta{
+	color: #AE1D3F;
+}
+.philosophy .violeta{	
+	font-size: 3em;
+}
+.philosophy .philomessage{
+	text-transform: uppercase;
+	font-size: 3em;
+	color: #8E8E8E;
+	font-style: italic;
+}
+/* testimonials */
+.testimonialabout h2{
+	margin-bottom: 5%;
+}
+.testimonialabout{
+	margin-bottom: 30px;
+}
+.testimonialabout img{
+	width: 29%;
+	display: inline-block;
+}
+.testimonialabout .description{
+	display: inline-block;
+	vertical-align: top;
+	width: 70%;
+}
+.infoContacto, .gallery{
+	width: 49%;
+	display: inline-block;
+	vertical-align: top;
+}
