@@ -63,7 +63,7 @@ class realcontactForm(forms.Form):
 	profession = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'What do you do for living?'}))
 	hobbies = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder': 'What do you like to do?'}))
 	favorite_colors = forms.CharField(max_length=300, widget=forms.TextInput(attrs={'placeholder': 'Write down all your favorite colors'}))
-	mensaje = forms.CharField(max_length=300, widget=forms.Textarea(attrs={'cols': 38, 'rows': 10}))
+	message = forms.CharField(max_length=300, widget=forms.Textarea(attrs={'cols': 38, 'rows': 10}))
 	website = forms.CharField(widget=HoneypotWidget, required=False)
 
 	def clean_asunto(self):

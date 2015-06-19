@@ -12,7 +12,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 {% block head %} {% endblock%}
-<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/eo.png' %}">
 <title>{% block title %} {% endblock%}</title>
 <link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
@@ -48,11 +48,19 @@
 				<a href="{% url 'homepageindex' %}">Home</a>
 				<a href="{% url 'homepageabout' %}">About</a>
 				<a href="{% url 'homepageservices' %}">Services</a>
-				<a href="">Gallery</a>
+				<a href="{% url 'homepagegallery' %}">Gallery</a>
 				<a href="/blog">Blog</a>
 				<a href="{% url 'homepagecontact' %}">Contact</a>
-				{% block navi %}{% endblock%}
 			</nav>
+			<select class="barraNavegacionSelect"> 
+				<option value="" selected="selected">Menú</option> 
+				<option value="{% url 'homepageindex' %}">Inicio</option> 
+				<option value="{% url 'homepageabout' %}">About</option>
+				<option value="{% url 'homepageservices' %}">Services</option>
+				<option value="{% url 'homepagegallery' %}">Gallery</option>
+				<option value="/blog">Blog</option>
+				<option value="{% url 'homepagecontact' %}">Contact</option>
+			</select>
 		</div>
 	</header>
 	<section class="contenido">
@@ -64,17 +72,17 @@
 		<div class="wrapper">
 			<div class="footer-der">
 				<div class="barraNavegacionFooter">
-					<a href="{% url 'homepageindex' %}">Home</a>
-					<a href="{% url 'homepageabout' %}">About</a>
-					<a href="{% url 'homepageservices' %}">Services</a>
-					<a href="">Gallery</a>
-					<a href="/blog">Blog</a>
+					<a href="{% url 'homepageindex' %}">Home</a> |
+					<a href="{% url 'homepageabout' %}">About</a> |
+					<a href="{% url 'homepageservices' %}">Services</a> |
+					<a href="{% url 'homepagegallery' %}">Gallery</a> |
+					<a href="/blog">Blog</a> |
 					<a href="{% url 'homepagecontact' %}">Contact</a>
 				</div>
 				<div class="copyRight">Elizabeth Oliva © Copyright 2015 - All rights reserved.</div>
 			</div>
 			<div class="footer-izq">
-				<img src="" alt="">
+				<a href="{% url 'homepageindex' %}"><img src="{% static 'img/logo.png' %}" alt="Logo elizabeth oliva"></a>
 				<div class="phoneFooter">Phone: 305 989 1513</div>
 				<div class="emailFooter">Email: <a href="mailto:elizabeth@elizabetholiva.us">elizabeth@elizabetholiva.us</a></div>
 			</div>	  
@@ -86,6 +94,12 @@
 			</div>
 		</div>
 	</footer>
+	<!-- Nav -->
+	<script>
+	$("select.barraNavegacionSelect").change(function() {
+	    window.location = $(this).find("option:selected").val();
+	});    
+	</script>
 	{% block jsBottom %}
 	{% endblock %}
 </body>

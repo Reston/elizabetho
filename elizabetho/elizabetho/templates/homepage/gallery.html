@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block title %}
+Gallery - Elizabeth Olive
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/homepage/gallery.css' %}">
+<link rel="stylesheet" href="{% static 'css/flexslidergallery.css' %}">
+{% endblock css%}
+{% block js %}
+<script type="text/javascript" src="{% static 'js/adquiridos/jquery.flexslider-min.js' %}"></script>
+{% endblock %}
+{% block contenido %}
+<section class="quienessomos">
+	<div class="wrapper">
+		<h1>Gallery</h1>
+		<section class="gallery">
+			<div id="slider" class="flexslider">
+				<ul class="slides">
+				{% for image in gallery %}
+					<li>
+						<img src="{{image.photo.url}}" alt="{{image.name}}" draggable="false">
+					</li>
+				{% endfor %}
+				</ul>
+			</div>
+			<div id="carousel" class="flexslider">
+			  <ul class="slides">
+				{% for image in gallery %}
+					<li>
+						<img src="{{image.photo.url}}" alt="{{image.name}}" draggable="false">
+					</li>
+				{% endfor %}
+			  </ul>
+			</div>
+		</section>
+		<section class="infoContacto">
+			<form action="#" method="POST">
+				<h3 class="titleform">Fill out form</h3>
+				{% csrf_token %}
+				{{ form.as_p }}
+				<div class="botonEnviar">
+					<input type="submit">
+				</div>
+			</form>
+		</section>
+		<section class="services">
+			<h2>Services</h2>
+			<h3 class="itemService"><span>1</span>Color Analysis</h3>
+			<h3 class="itemService"><span>2</span>Body Style Analysis</h3>
+			<h3 class="itemService"><span>3</span>Wardrobe Evaluation</h3>
+			<h3 class="itemService"><span>4</span>Personal Shopping</h3> 
+			<h3 class="itemService"><span>5</span>Styling Outfits</h3>
+			<h3 class="itemService"><span>6</span>Photo & Event Preproduction</h3>
+		</section>
+		<section class="testimonials">
+			<h2>Testimonials</h2>
+			{% for testi in testimonials %}
+			<div class="testimonial">
+				<img src="{{testi.photo.url}}" alt="{{testi.name}}">
+				<div class="description">
+					<div class="name">{{testi.name}}</div>
+					<p>{{testi.description}}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</section>
+		<div class="ultimasNoticias">
+			<h2 class="titulo">Blog</h2>
+			{% for item in entradas %}
+			<article>
+				<a href="{{ item.get_absolute_url }}">
+					{% if item.image %}
+						{% thumbnail item.image "265x176" crop="top" as img %}
+							<img src="{{img.url}}" alt="{{ item.title }}">
+						{% endthumbnail %}
+					{% else %}
+						<img src="{% static 'img/biografia.png' %}" alt="Entrada sin imagen">
+					{% endif %}
+					<div class="infoBlog">
+						<div class="tituloNoticia">{{ item.title }}</div>
+						<div class="textonoticia">
+							{% autoescape off %}
+								<p>{{item.content}}...</p>
+							{% endautoescape %}	
+						</div>
+					</div>
+				</a>
+			</article>
+			{%  endfor %}
+			<a href="/blog"class="vertodas">Ver todas</a>
+		</div>
+	</div>
+</section>
+{% endblock%}
+{% block jsBottom %}
+<script>
+	$(document).ready(function() {
+  // The slider being synced must be initialized first
+ 
+	  $('#slider').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: false,
+	    slideshow: false,
+	    sync: "#carousel"
+	  });
+	  $('#carousel').flexslider({
+	    animation: "slide",
+	    controlNav: false,
+	    animationLoop: false,
+	    slideshow: false,
+	    itemWidth: 210,
+	    itemMargin: 5,
+	    asNavFor: '#slider'
+	  });
+	});
+</script>
+{% endblock %}

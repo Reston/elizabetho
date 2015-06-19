@@ -113,7 +113,7 @@ footer .twitter, footer .facebook, footer .instagram, footer .linkedin{
 	margin-bottom: 30px;
 }
 .testimonials img{
-	width: 40%;
+	width: 39%;
 	display: inline-block;
 }
 .testimonials .description{
@@ -137,6 +137,20 @@ footer{
 	display: inline-block;
 	vertical-align: top;
 	width: 49%;
+}
+.footer-izq img{
+	width: 200px;
+	display: inline-block;
+	-webkit-filter: grayscale(80%); 
+	filter: grayscale(80%); 
+}
+.footer-izq .phoneFooter{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 17px;
+}
+.barraNavegacionFooter{
+	margin-top: 20px;
 }
 .barraNavegacionFooter a{
 	text-decoration: none;
@@ -192,8 +206,13 @@ footer{
 	background-color: #777;
 }
 
+.barraNavegacionSelect{
+	display: none;
+}
 @media screen and (max-width: 1000px){
-
+	.wrapper {
+		width: 100%;
+	}
 	/* configuración back-to-top responsive */
 	.back-top a{
 		width: 60px;
@@ -210,4 +229,27 @@ footer{
 	.back-top a:hover span {
 		background:none;
 	}
+}
+
+@media screen and (max-width: 730px){
+	.footer-der, .footer-izq{
+		width: 100%;
+	}
+	header img{
+		width: 100%;
+	}
+	.barraNavegacion{ display: none; }
+	.barraNavegacionSelect{ display: inline-block; }
+	.barraNavegacionSelect{
+		text-align: center;
+		width: 100%;
+		font-size: 2em;
+		padding: 5px;
+		margin-top: 0;
+		margin-bottom: 4px;
+		background: #AE1F41;
+		color: #FFF;
+		border: none;
+		text-indent: 5px;
+  	}
 }

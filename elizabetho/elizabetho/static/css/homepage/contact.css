@@ -1,5 +1,6 @@
 h2{
 	text-align: center;
+	text-transform: uppercase;
 }
 .contactDer, .contactIzq{
 	margin-top: 15px;
@@ -18,4 +19,31 @@ h2{
 .flexslider {
 	background: none !important;
 	border: none !important;
+}
+.infotext{
+	color: #808080;
+}
+
+@media screen and (max-width: 1000px){
+	textarea{
+		width: 98%;
+	}
+}
+@media screen and (max-width: 730px){
+	.contactDer, .contactIzq {
+		width: 100%;
+	}
+	form {
+		margin: 0;
+	}
+	form p {
+		padding: 0 7%;
+	}
+	.infoContacto {
+		font-size: 1em;
+		margin-bottom: 30px;
+	}
+	textarea{
+		width: 98%;
+	}
 }

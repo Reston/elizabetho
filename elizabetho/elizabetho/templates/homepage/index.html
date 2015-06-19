@@ -17,9 +17,12 @@ Home - Elizabeth Olive
 {% block clear %}{% endblock%}
 {% block contenido %}
 	<section class="bannerPrincipal">
-		<h1>Titulo importante</h1>
-		<div class="wrapper banner1">
-		</div>
+		  <iframe id="iframe1" frameborder="0" height="100%" width="100%" 
+		    data-src="https://youtube.com/embed/Xa0GbjFrxsk?autoplay=1&controls=0&showinfo=0&autohide=1">
+		  </iframe>
+			<div class="banner">
+				<img src="{% static 'img/gallery2.png' %}" alt="slider fancy">
+			</div>
 	</section>
 	<div class="wrapper">
 		<section class="services">
@@ -49,7 +52,7 @@ Home - Elizabeth Olive
 		<section class="infoContacto">
 			<h2>Contact us</h2>
 			<form action="#" method="POST">
-				<h3 class="titleform">Fill out the form</h3>
+				<h3 class="titleform">Fill out form</h3>
 				{% csrf_token %}
 				{{ form.as_p }}
 				<div class="botonEnviar">
@@ -77,6 +80,17 @@ Home - Elizabeth Olive
 {% endblock%}
 {% block jsBottom %}
 <script>
+	$( document ).ready(function() {      
+	    var isMobile = window.matchMedia("only screen and (max-width: 1000px)");
+	    if (isMobile.matches) {
+	        $('#iframe1').remove()
+	        $('.flexsliderbanner').show()
+	        //Conditional script here
+	    }else{
+			$('#iframe1').attr( 'src',  $('#iframe1').data('src'));
+			$('.bannerPrincipal').append('<iframe id="iframe1" frameborder="0" height="100%" width="100%" data-src="https://youtube.com/embed/Xa0GbjFrxsk?autoplay=1&controls=0&showinfo=0&autohide=1"></iframe>')
+	    }
+	 });
 	$('.flexslider').flexslider({
 		slideshowSpeed: 7000,
 		// start: function(slider) {

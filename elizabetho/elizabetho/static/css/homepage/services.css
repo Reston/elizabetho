@@ -20,6 +20,33 @@ h1{
 
 .gallery, .testimonials{
 	display: inline-block;
-	width: 49%;
+	width: 45%;
 	vertical-align: top;
+	padding: 0 2%;
 }
+
+@media screen and (max-width: 1000px){
+	
+}
+@media screen and (max-width: 730px){
+	h1{
+		width: 100%;
+	}
+	.quienessomos > .wrapper > img {
+		width: 98%;
+		margin: 0;
+	}
+	.services, .infoContacto, .gallery, .testimonials{
+		width: 96%;
+	}
+	form {
+		margin: 0;
+	}
+	form p {
+		padding: 0 7%;
+	}
+	.testimonialabout .description {
+		width: 68%;
+	}
+}
+

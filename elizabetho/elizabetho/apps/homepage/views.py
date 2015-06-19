@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from elizabetho.apps.homepage.forms import contactForm, realcontactForm
-from elizabetho.apps.homepage.models import Testimonial
+from elizabetho.apps.homepage.models import Testimonial, Gallery as GalleryBig
 from elizabetho.apps.gallerypath.models import Gallery, Image
 from django.template import RequestContext
 from django.core.mail import send_mail
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+from zinnia.models import Entry
 
 
 def index(request):
@@ -16,9 +17,10 @@ def index(request):
 		if form.is_valid():
 			success = True
 			cd = form.cleaned_data
-			asunto = u'Por: %s mail: %s Tipo de servicio: %s Plan: %s' % (cd['nombre'], cd['email'], cd['tipoServicio'], cd['planes'])
-			content = u'Email contacto: %s \nAsunto: %s \nTelefono: %s \nDescripcion: %s' % (cd['email'], asunto, cd['telefono'], cd['texto'])
-			send_mail(asunto, content, cd['email'], ['info@duranjo.com'])
+			asunto = u'Por: %s Email: %s Phone: %s' % (cd['name'], cd['email'], cd['phone'])
+			content = u'Name: %s \nEmail: %s \nPhone: %s \nGender: %s \nHeight: %s \nWeight: %s \nSkin Color: %s \nHair Color: %s \nProfession: %s \nHobbies: %s \nFavorite Colors: %s' % (
+				cd['name'], cd['email'], cd['phone'], cd['gender'], cd['height'], cd['weight'], cd['skin_color'], cd['hair_color'], cd['profession'], cd['hobbies'], cd['favorite_colors'])
+			send_mail(asunto, content, cd['email'], ['elizabeth@elizabetholive.us'])
 	else:
 		form = contactForm()
 	#llamados
@@ -43,9 +45,10 @@ def about(request):
 		if form.is_valid():
 			success = True
 			cd = form.cleaned_data
-			asunto = u'Por: %s mail: %s Tipo de servicio: %s Plan: %s' % (cd['nombre'], cd['email'], cd['tipoServicio'], cd['planes'])
-			content = u'Email contacto: %s \nAsunto: %s \nTelefono: %s \nDescripcion: %s' % (cd['email'], asunto, cd['telefono'], cd['texto'])
-			send_mail(asunto, content, cd['email'], ['info@duranjo.com'])
+			asunto = u'Por: %s Email: %s Phone: %s' % (cd['name'], cd['email'], cd['phone'])
+			content = u'Name: %s \nEmail: %s \nPhone: %s \nGender: %s \nHeight: %s \nWeight: %s \nSkin Color: %s \nHair Color: %s \nProfession: %s \nHobbies: %s \nFavorite Colors: %s' % (
+				cd['name'], cd['email'], cd['phone'], cd['gender'], cd['height'], cd['weight'], cd['skin_color'], cd['hair_color'], cd['profession'], cd['hobbies'], cd['favorite_colors'])
+			send_mail(asunto, content, cd['email'], ['elizabeth@elizabetholive.us'])
 	else:
 		form = contactForm()
 	#llamados
@@ -70,9 +73,10 @@ def services(request):
 		if form.is_valid():
 			success = True
 			cd = form.cleaned_data
-			asunto = u'Por: %s mail: %s Tipo de servicio: %s Plan: %s' % (cd['nombre'], cd['email'], cd['tipoServicio'], cd['planes'])
-			content = u'Email contacto: %s \nAsunto: %s \nTelefono: %s \nDescripcion: %s' % (cd['email'], asunto, cd['telefono'], cd['texto'])
-			send_mail(asunto, content, cd['email'], ['info@duranjo.com'])
+			asunto = u'Por: %s Email: %s Phone: %s' % (cd['name'], cd['email'], cd['phone'])
+			content = u'Name: %s \nEmail: %s \nPhone: %s \nGender: %s \nHeight: %s \nWeight: %s \nSkin Color: %s \nHair Color: %s \nProfession: %s \nHobbies: %s \nFavorite Colors: %s' % (
+				cd['name'], cd['email'], cd['phone'], cd['gender'], cd['height'], cd['weight'], cd['skin_color'], cd['hair_color'], cd['profession'], cd['hobbies'], cd['favorite_colors'])
+			send_mail(asunto, content, cd['email'], ['elizabeth@elizabetholive.us'])
 	else:
 		form = contactForm()
 	#llamados
@@ -90,6 +94,27 @@ def services(request):
 	return render_to_response('homepage/services.html', ctx, context_instance=RequestContext(request))
 
 
+def gallery(request):
+	success = False
+	if request.method == 'POST':
+		form = contactForm(request.POST)
+		if form.is_valid():
+			success = True
+			cd = form.cleaned_data
+			asunto = u'Por: %s Email: %s Phone: %s' % (cd['name'], cd['email'], cd['phone'])
+			content = u'Name: %s \nEmail: %s \nPhone: %s \nGender: %s \nHeight: %s \nWeight: %s \nSkin Color: %s \nHair Color: %s \nProfession: %s \nHobbies: %s \nFavorite Colors: %s' % (
+				cd['name'], cd['email'], cd['phone'], cd['gender'], cd['height'], cd['weight'], cd['skin_color'], cd['hair_color'], cd['profession'], cd['hobbies'], cd['favorite_colors'])
+			send_mail(asunto, content, cd['email'], ['elizabeth@elizabetholive.us'])
+	else:
+		form = contactForm()
+	gallery = GalleryBig.objects.all()[:12]
+	entradas = Entry.objects.order_by('-creation_date')
+	entradas = entradas[:4]
+	testimonials = Testimonial.objects.all()[:3]
+	ctx = {'form': form, 'success': success, 'testimonials': testimonials, 'entradas': entradas, 'gallery': gallery}
+	return render_to_response('homepage/gallery.html', ctx, context_instance=RequestContext(request))
+
+
 def contact(request):
 	success = False
 	if request.method == 'POST':
@@ -97,9 +122,10 @@ def contact(request):
 		if form.is_valid():
 			success = True
 			cd = form.cleaned_data
-			asunto = u'Por: %s mail: %s Tipo de servicio: %s Plan: %s' % (cd['nombre'], cd['email'], cd['tipoServicio'], cd['planes'])
-			content = u'Email contacto: %s \nAsunto: %s \nTelefono: %s \nDescripcion: %s' % (cd['email'], asunto, cd['telefono'], cd['texto'])
-			send_mail(asunto, content, cd['email'], ['info@duranjo.com'])
+			asunto = u'Por: %s Email: %s Phone: %s' % (cd['name'], cd['email'], cd['phone'])
+			content = u'Name: %s \nEmail: %s \nPhone: %s \nGender: %s \nHeight: %s \nWeight: %s \nSkin Color: %s \nHair Color: %s \nProfession: %s \nHobbies: %s \nFavorite Colors: %s \nMessage: %s' % (
+				cd['name'], cd['email'], cd['phone'], cd['gender'], cd['height'], cd['weight'], cd['skin_color'], cd['hair_color'], cd['profession'], cd['hobbies'], cd['favorite_colors'], cd['message'])
+			send_mail(asunto, content, cd['email'], ['elizabeth@elizabetholive.us'])
 	else:
 		form = realcontactForm()
 	testimonials = Testimonial.objects.all()[:4]

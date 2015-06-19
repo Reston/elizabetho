@@ -9,3 +9,36 @@
 	display: block;
 	margin: 20px auto 0 auto;
 }
+.bannerPrincipal{
+	width: 100%;
+	height: 500px;
+}
+.bannerPrincipal .banner{
+	display: none;
+	position: relative;
+}
+.banner img{
+	width: 100%;
+}
+@media screen and (max-width: 1000px){
+	iframe{
+		display: none;
+	}
+	.bannerPrincipal{
+		height: auto;
+	}
+	.bannerPrincipal .banner{
+		display: block;
+	}
+}
+@media screen and (max-width: 730px){
+	.services, .elizabeth, .infoContacto, .testimonials{
+		width: 98%;
+	}
+	form {
+		margin: 0;
+	}
+	form p {
+		padding: 0 7%;
+	}
+}

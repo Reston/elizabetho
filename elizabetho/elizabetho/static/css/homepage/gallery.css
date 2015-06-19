@@ -1,0 +1,84 @@
+h1{
+	font-size: 3em;
+	text-transform: uppercase;
+	font-style: italic;
+}
+.slider { margin: 50px 0 10px!important;}
+#carousel li {margin-right: 5px;}
+#carousel img {display: block; opacity: .5; cursor: pointer;}
+#carousel img:hover {opacity: 1;}
+#carousel .flex-active-slide img {opacity: 1; cursor: default;}
+
+
+.gallery, .infoContacto, .testimonials, .ultimasNoticias{
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+.gallery{
+	width: 62%;
+}
+.infoContacto{
+	width: 37%;
+}
+article a{
+	text-decoration: none;
+}
+article img{
+	width: 40%;
+	display: inline-block;
+}
+.infoBlog{
+	display: inline-block;
+	width: 59%;
+	vertical-align: top;
+}
+.tituloNoticia{
+	color: #4A4A4A;
+	font-weight: bold;
+}
+.ultimasNoticias > a{
+	text-align: center;
+	display: block;
+}
+.services{
+	margin-bottom: 40px;
+}
+.itemService{
+	color: #5A5B5A;
+	display: inline-block;
+	width: 33%;
+	text-transform: uppercase;
+	font-size: 1.3em;
+}
+.itemService span{
+	width: 40px;
+	height: 40px;
+	background-color: #808080;
+	margin-right: 5px;
+	font-size: 1.5em;
+	display: inline-block;
+	text-align: center;
+}
+
+@media screen and (max-width: 1000px){
+	
+}
+@media screen and (max-width: 730px){
+	.gallery, .infoContacto, .testimonials, .ultimasNoticias {
+		width: 98%;
+	}
+	form {
+		margin: 0;
+	}
+	form p {
+		padding: 0 7%;
+	}
+	.itemService {
+		width: 98%;
+		font-size: 1em;
+	}
+	article img {
+  		width: 39%;
+  	}
+}

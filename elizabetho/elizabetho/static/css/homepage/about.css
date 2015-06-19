@@ -61,3 +61,30 @@ h1{
 	display: inline-block;
 	vertical-align: top;
 }
+.gallery{
+	padding-top: 10%;
+}
+@media screen and (max-width: 1000px){
+	
+}
+@media screen and (max-width: 730px){
+	.imagenher, .abouther{
+		width: 95%;
+	}
+	.philosophy {
+		width: 95%;
+	}
+	.infoContacto, .gallery {
+		width: 98%;
+	}
+	form {
+		margin: 0;
+	}
+	form p {
+		padding: 0 7%;
+	}
+	.testimonialabout .description {
+		width: 68%;
+	}
+}
+
