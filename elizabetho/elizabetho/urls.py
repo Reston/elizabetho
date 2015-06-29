@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.http import HttpResponse
 from sitemaps import StaticViewSitemap
-
+from zinnia.sitemaps import TagSitemap, EntrySitemap, CategorySitemap, AuthorSitemap
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 
@@ -10,6 +10,10 @@ admin.autodiscover()
 
 sitemaps = {
 	'pages': StaticViewSitemap,
+	'tags': TagSitemap,
+	'blog': EntrySitemap,
+	'authors': AuthorSitemap,
+	'categories': CategorySitemap,
 }
 
 urlpatterns = patterns(
@@ -20,6 +24,7 @@ urlpatterns = patterns(
 	url(r'^', include('elizabetho.apps.homepage.urls')),
 	# Uncomment the admin/doc line below to enable admin documentation:
 	# url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+	(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
 	url(r'^blog/', include('zinnia.urls')),
 	(r'^googlec34fe789f50fc843\.html$', lambda r: HttpResponse("google-site-verification: googlec34fe789f50fc843.html", mimetype="text/plain")),
 	# Uncomment the next line to enable the admin:

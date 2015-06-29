@@ -9,7 +9,11 @@ class StaticViewSitemap(sitemaps.Sitemap):
 
 	def items(self):
 		return [
-				#'homepageindex',
+				'homepageindex',
+				'homepageabout',
+				'homepageservices',
+				'homepagegallery',
+				'homepagecontact',
 				# colocar los nombre de las url en este lugar. ejemplo: 'homepageworks'
 				]
 
