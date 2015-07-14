@@ -54,7 +54,9 @@ h1{
 .testimonialabout .description{
 	display: inline-block;
 	vertical-align: top;
-	width: 70%;
+	width: 66%;
+	line-height: 2em;
+	padding: 0 2%;
 }
 .infoContacto, .gallery{
 	width: 49%;

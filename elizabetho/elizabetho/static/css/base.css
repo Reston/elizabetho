@@ -18,6 +18,9 @@ header nav a{
 header nav a:hover{
 	text-decoration: underline;
 }
+header nav{
+	margin-bottom: 25px;
+}
 h1, h2{
 	font-family: "Marvel", helvetica;
 	color: #8E8E8E;
@@ -119,7 +122,8 @@ footer .twitter, footer .facebook, footer .instagram, footer .linkedin{
 .testimonials .description{
 	display: inline-block;
 	vertical-align: top;
-	width: 59%;
+	width: 55%;
+	padding: 0 2%;
 }
 .testimonials .description .name{
 	font-weight: bold;
