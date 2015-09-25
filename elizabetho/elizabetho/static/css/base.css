@@ -132,8 +132,8 @@ footer .twitter, footer .facebook, footer .instagram, footer .linkedin{
 
 /* FOOTER */
 footer{
-	background-color: #EAEFFD;
-	color: #999B99;
+	background-color: #e2e2e2;
+	color: #ad1d3e;
 	padding: 3% 0 0 0;
 	text-align: center;
 }
@@ -158,7 +158,7 @@ footer{
 }
 .barraNavegacionFooter a{
 	text-decoration: none;
-	color: #999B99;
+	color: #ad1d3e;
 }
 /* Configuración back to top button */
 

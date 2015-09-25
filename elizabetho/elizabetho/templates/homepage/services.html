@@ -33,7 +33,7 @@ Services - Elizabeth Oliva
 		</section>
 		<section class="infoContacto">
 			<form action="#" method="POST">
-				<h3 class="titleform">Fill out form</h3>
+				<h3 class="titleform">Contact Us for your FREE Consult</h3>
 				{% csrf_token %}
 				{{ form.as_p }}
 				<div class="botonEnviar">
@@ -42,7 +42,6 @@ Services - Elizabeth Oliva
 			</form>
 		</section>
 	<section class="gallery">
-		<h2>Elizabeth</h2>
 		{% include 'gallerypath/llamadoaccion.html' %}
 	</section>
 	<section class="testimonials">

@@ -33,7 +33,7 @@ def index(request):
 		gallery = Gallery.objects.filter(path=request.build_absolute_uri())[0]
 	if gallery:
 		llamados = Image.objects.filter(gallery=gallery)
-	testimonials = Testimonial.objects.all()[:4]
+	testimonials = Testimonial.objects.all()[:3]
 	ctx = {'form': form, 'success': success, 'testimonials': testimonials, 'gallery': gallery, 'llamados': llamados}
 	return render_to_response('homepage/index.html', ctx, context_instance=RequestContext(request))
 
@@ -61,7 +61,7 @@ def about(request):
 		gallery = Gallery.objects.filter(path=request.build_absolute_uri())[0]
 	if gallery:
 		llamados = Image.objects.filter(gallery=gallery)
-	testimonials = Testimonial.objects.all()[:4]
+	testimonials = Testimonial.objects.all()[:6]
 	ctx = {'form': form, 'success': success, 'testimonials': testimonials, 'gallery': gallery, 'llamados': llamados}
 	return render_to_response('homepage/about.html', ctx, context_instance=RequestContext(request))
 
@@ -89,7 +89,7 @@ def services(request):
 		gallery = Gallery.objects.filter(path=request.build_absolute_uri())[0]
 	if gallery:
 		llamados = Image.objects.filter(gallery=gallery)
-	testimonials = Testimonial.objects.all()[:4]
+	testimonials = Testimonial.objects.all().order_by('-modify_on')[:2]
 	ctx = {'form': form, 'success': success, 'testimonials': testimonials, 'gallery': gallery, 'llamados': llamados}
 	return render_to_response('homepage/services.html', ctx, context_instance=RequestContext(request))
 

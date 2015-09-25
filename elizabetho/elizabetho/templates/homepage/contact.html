@@ -5,31 +5,14 @@ Contact - Elizabeth Oliva
 {% endblock %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/homepage/contact.css' %}">
-<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
 {% endblock css%}
 {% block js %}
-<script type="text/javascript" src="{% static 'js/adquiridos/jquery.flexslider-min.js' %}"></script>
 {% endblock %}
 {% block contenido %}
 	<section class="fondoContacto">
 		<div class="wrapper">
 			<div class="tituloStyle">
 				<h2>Contact</h2>
-			</div>
-			<div class="banner">
-				<div class="flexslider">
-					<ul class="slides">
-						<li>
-							<img src="{% static 'img/gallery.png' %}" alt="slider casual guys">
-						</li>
-						<li>
-							<img src="{% static 'img/gallery2.png' %}" alt="slider fancy">
-						</li>
-						<li>
-							<img src="{% static 'img/gallery3.png' %}" alt="slider suits">
-						</li>
-					</ul>
-				</div>
 			</div>
 			<div class="contactDer">
 				<img src="{% static 'img/biografia.jpg' %}" alt="Photo Elizabeth Oliva">
@@ -76,12 +59,4 @@ Contact - Elizabeth Oliva
 	</section>
 {% endblock%}
 {% block jsBottom %}
-<script>
-	$('.flexslider').flexslider({
-		slideshowSpeed: 7000,
-		// start: function(slider) {
-		//       slider.flexAnimate(slider.getTarget("next"));
-		//    }
-		});
-</script>
 {% endblock %}
