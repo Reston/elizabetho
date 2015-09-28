@@ -213,7 +213,7 @@ footer{
 .barraNavegacionSelect{
 	display: none;
 }
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1199px){
 	.wrapper {
 		width: 100%;
 	}
