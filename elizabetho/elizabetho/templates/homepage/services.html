@@ -31,6 +31,9 @@ Services - Elizabeth Oliva
 				<h3>Photo & Event Preproduction</h3>
 				<p>Don't leave it to the luck! We will help you be ready for that coming event, make the most of your time and image, and transcend!</p>
 		</section>
+		<section class="gallery">
+			<img src="{% static 'img/getthebest.jpg' %}" alt="get the best of you!">
+		</section>
 		<section class="infoContacto">
 			<form action="#" method="POST">
 				<h3 class="titleform">Contact Us for your FREE Consult</h3>
@@ -41,9 +44,6 @@ Services - Elizabeth Oliva
 				</div>
 			</form>
 		</section>
-	<section class="gallery">
-		{% include 'gallerypath/llamadoaccion.html' %}
-	</section>
 	<section class="testimonials">
 		<h2>Testimonials</h2>
 		{% for testi in testimonials %}

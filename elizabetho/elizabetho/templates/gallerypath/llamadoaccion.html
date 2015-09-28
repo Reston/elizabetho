@@ -4,13 +4,11 @@
 	<div class="flexslider">
 		<ul class="slides">
 		{% for imageg in llamados %}
-			{% thumbnail imageg.image "500x500" crop="center" as img %}
-				<li>
-					<a href="{{ imageg.url_to }}">
-						<img src="{{img.url}}" alt="{{imageg.alt}}">
-					</a>
-				</li>
-			{% endthumbnail %}
+			<li>
+				<a href="{{ imageg.url_to }}">
+					<img src="{{imageg.image.url}}" alt="{{imageg.alt}}">
+				</a>
+			</li>
 		{% endfor %}
 		</ul>
 	</div>
